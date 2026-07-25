@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gottofrey-electricite.ch/sitemap.xml
