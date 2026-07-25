@@ -13,8 +13,9 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23e1231a' d='M13 2 4 14h6l-1 8 9-12h-6z'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="preload" as="image" href="images/hero-truck.jpg" fetchpriority="high">
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -93,7 +94,7 @@
       </div>
     </div>
     <div class="hero-media">
-      <div class="frame"><img src="images/hero-truck.jpg" alt="Véhicule Gottofrey Installations électriques dans la campagne du Gros-de-Vaud" width="414" height="414"></div>
+      <div class="frame"><img src="images/hero-truck.jpg" alt="Véhicule Gottofrey Installations électriques dans la campagne du Gros-de-Vaud" width="414" height="414" fetchpriority="high"></div>
       <div class="hero-badge tr">
         <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
         <div><b>Maîtrise fédérale</b><span>Artisan diplômé</span></div>
@@ -174,6 +175,7 @@
         <a class="svc-row active" href="services/installation-renovation/"
            data-img="images/pf-tableau-02.jpg" data-alt="Câblage d'une installation électrique"
            data-title="Installations &amp; rénovation" data-desc="Courant fort et courant faible : installations neuves, rénovations, modifications, mise aux normes NIBT, téléphonie et réseau.">
+          <img class="svc-row-thumb" src="images/pf-tableau-02.jpg" alt="" width="72" height="72" loading="lazy">
           <span class="svc-row-n">01</span>
           <span class="svc-row-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2 6 14h5l-1 8 8-12h-5z"/></svg></span>
           <span class="svc-row-main"><b>Installations &amp; rénovation</b><small>Neuf, rénovation, mise aux normes</small></span>
@@ -182,6 +184,7 @@
         <a class="svc-row" href="services/tableau-electrique/"
            data-img="images/pf-tableau-01.jpg" data-alt="Tableau électrique câblé"
            data-title="Tableaux électriques" data-desc="Remplacement et modernisation de tableaux, réparation de panneaux, disjoncteurs différentiels et mise en sécurité de l'installation.">
+          <img class="svc-row-thumb" src="images/pf-tableau-01.jpg" alt="" width="72" height="72" loading="lazy">
           <span class="svc-row-n">02</span>
           <span class="svc-row-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h4"/></svg></span>
           <span class="svc-row-main"><b>Tableaux électriques</b><small>Remplacement &amp; mise en sécurité</small></span>
@@ -190,6 +193,7 @@
         <a class="svc-row" href="services/controle-oibt/"
            data-img="images/pf-oibt-01.jpg" data-alt="Contrôle OIBT au multimètre"
            data-title="Contrôle OIBT" data-desc="Contrôle périodique obligatoire, rapport de sécurité (RS) et dossier complet conformes à l'OIBT. Idéal avant une vente ou sur avis de votre distributeur.">
+          <img class="svc-row-thumb" src="images/pf-oibt-01.jpg" alt="" width="72" height="72" loading="lazy">
           <span class="svc-row-n">03</span>
           <span class="svc-row-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
           <span class="svc-row-main"><b>Contrôle OIBT <span class="tag">Obligatoire</span></b><small>Rapport de sécurité conforme</small></span>
@@ -198,6 +202,7 @@
         <a class="svc-row" href="services/eclairage/"
            data-img="images/pf-eclairage-01.jpg" data-alt="Éclairage extérieur installé à la nacelle"
            data-title="Éclairage intérieur &amp; extérieur" data-desc="Installation et réparation d'éclairages LED, spots, extérieurs, détecteurs de mouvement et éclairage festif ou communal.">
+          <img class="svc-row-thumb" src="images/pf-eclairage-01.jpg" alt="" width="72" height="72" loading="lazy">
           <span class="svc-row-n">04</span>
           <span class="svc-row-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V17h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg></span>
           <span class="svc-row-main"><b>Éclairage int. &amp; ext.</b><small>LED, détecteurs, festif</small></span>
@@ -206,6 +211,7 @@
         <a class="svc-row" href="services/prises-interrupteurs/"
            data-img="images/pf-prises-02.jpg" data-alt="Pose d'une prise électrique"
            data-title="Prises &amp; interrupteurs" data-desc="Pose, déplacement et réparation de prises et interrupteurs, variateurs, thermostats et mise à la terre (fils de terre).">
+          <img class="svc-row-thumb" src="images/pf-prises-02.jpg" alt="" width="72" height="72" loading="lazy">
           <span class="svc-row-n">05</span>
           <span class="svc-row-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="9" cy="12" r="1.4"/><circle cx="15" cy="12" r="1.4"/></svg></span>
           <span class="svc-row-main"><b>Prises &amp; interrupteurs</b><small>Pose, déplacement, réparation</small></span>
@@ -214,6 +220,7 @@
         <a class="svc-row" href="services/photovoltaique/"
            data-img="images/pf-pv-01.jpg" data-alt="Panneaux photovoltaïques sur toiture"
            data-title="Photovoltaïque &amp; borne de recharge" data-desc="Raccordement de panneaux solaires, onduleurs, mise en service et pose de bornes de recharge (wallbox) pour véhicules électriques.">
+          <img class="svc-row-thumb" src="images/pf-pv-01.jpg" alt="" width="72" height="72" loading="lazy">
           <span class="svc-row-n">06</span>
           <span class="svc-row-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H4zM2 20h20M9 8l-2 4h4l-2 4"/></svg></span>
           <span class="svc-row-main"><b>Photovoltaïque &amp; recharge</b><small>Solaire, onduleur, borne</small></span>
@@ -235,7 +242,7 @@
 <section class="section" id="apropos">
   <div class="container about-grid about">
     <div class="about-media">
-      <img src="images/pf-tableau-01.jpg" alt="Tableau électrique câblé par Gottofrey" width="414" height="414">
+      <img src="images/pf-tableau-01.jpg" alt="Tableau électrique câblé par Gottofrey" width="414" height="414" loading="lazy">
       <div class="seal"><b>Maîtrise fédérale</b><span>Gottofrey — Échallens</span></div>
     </div>
     <div>
