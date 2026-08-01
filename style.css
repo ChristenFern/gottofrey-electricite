@@ -471,15 +471,37 @@ strong{color:var(--ink);font-weight:700}
 .kwbox h3{font-size:1.25rem;margin-bottom:18px;display:flex;align-items:center;gap:10px}
 .kwbox h3 svg{width:22px;height:22px;color:var(--red)}
 
-/* mini-liste services sur page région */
-.mini-svc{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.mini-svc a{display:flex;align-items:center;gap:12px;background:var(--paper);border:1px solid var(--line);
-  border-radius:12px;padding:15px 18px;transition:.2s}
-.mini-svc a:hover{border-color:var(--line-2);box-shadow:var(--sh);transform:translateY(-2px)}
-.mini-svc .ic{width:40px;height:40px;border-radius:10px;background:#fdeceb;display:grid;place-items:center;flex:none}
-.mini-svc .ic svg{width:20px;height:20px;color:var(--red)}
-.mini-svc b{font-family:var(--disp);color:var(--ink);font-size:.98rem}
-.mini-svc span{font-size:.82rem;color:var(--mute);display:block}
+/* mini-liste services (pages prestation & région) */
+.mini-svc{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.mini-svc a{display:flex;align-items:center;gap:15px;background:var(--paper);border:1px solid var(--line);
+  border-radius:14px;padding:17px 20px;transition:.22s var(--ease);position:relative;overflow:hidden}
+/* liseré « courant » qui se déploie au survol */
+.mini-svc a::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(var(--red),var(--yellow),var(--green));
+  transform:scaleY(0);transform-origin:center;transition:.26s var(--ease)}
+.mini-svc a:hover{border-color:var(--line-2);box-shadow:var(--sh);transform:translateY(-3px)}
+.mini-svc a:hover::before{transform:scaleY(1)}
+.mini-svc .ic{width:46px;height:46px;border-radius:12px;background:#fdeceb;display:grid;place-items:center;
+  flex:none;transition:.22s var(--ease)}
+.mini-svc .ic svg{width:22px;height:22px;color:var(--red);transition:.22s var(--ease)}
+.mini-svc a:hover .ic{background:var(--red)}
+.mini-svc a:hover .ic svg{color:#fff}
+/* Filet de sécurité : une icône posée sans pastille reste à la bonne taille
+   au lieu de s'étaler sur toute la carte. */
+.mini-svc a > svg{width:22px;height:22px;flex:none;color:var(--red)}
+.mini-svc .txt,.mini-svc a > div{flex:1;min-width:0}
+.mini-svc b{font-family:var(--disp);color:var(--ink);font-size:1.02rem;line-height:1.25;display:block}
+.mini-svc span{font-size:.85rem;color:var(--mute);display:block;margin-top:2px}
+/* chevron d'action, aligné à droite */
+.mini-svc .go{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--line-2);flex:none;
+  display:grid;place-items:center;transition:.22s var(--ease)}
+.mini-svc .go svg{width:15px;height:15px;color:var(--ink)}
+.mini-svc a:hover .go{background:var(--red);border-color:var(--red);transform:translateX(3px)}
+.mini-svc a:hover .go svg{color:#fff}
+/* nombre impair de cartes : la dernière occupe la largeur au lieu de
+   laisser une demi-rangée vide */
+.mini-svc a:last-child:nth-child(odd){grid-column:1/-1}
+@media(max-width:560px){.mini-svc a{padding:14px 16px;gap:12px}.mini-svc .ic{width:42px;height:42px}}
 
 @media(max-width:980px){
   .phero-grid{grid-template-columns:1fr;gap:26px}
