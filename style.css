@@ -523,6 +523,84 @@ strong{color:var(--ink);font-weight:700}
   .hero-badge{display:none}
   .pf-grid{grid-template-columns:repeat(2,1fr)}
 }
+/* ============================================================
+   TEXTURE, PROFONDEUR & MOUVEMENT
+   Ajouté 2026-08-01. Registre volontairement sobre : de la
+   matière et de la lumière, pas de néon de fond.
+   ============================================================ */
+
+/* ---------- Grain papier (overlay global) ----------
+   feTurbulence en data-URI : aucun fichier à charger, aucun coût réseau.
+   Discret sur fond clair (5%), le contraste suffit à casser l'effet
+   « aplat numérique » des grands fonds unis. */
+body::after{
+  content:"";position:fixed;inset:0;z-index:1;pointer-events:none;
+  opacity:.05;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+/* Le contenu reste au-dessus du grain. */
+body > *{position:relative;z-index:2}
+/* Grain renforcé sur les aplats sombres, où il se voit vraiment. */
+.trustbar,.cta-band,.site-footer{position:relative}
+.trustbar::after,.cta-band::after,.site-footer::after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.09;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.trustbar .container,.cta-band > *,.site-footer .container{position:relative;z-index:1}
+
+/* ---------- Lumière derrière le hero ----------
+   Deux foyers très diffus dans les teintes de la marque : donne de la
+   profondeur au fond uni sans virer au dégradé saturé. */
+.hero{isolation:isolate}
+.hero::before{
+  content:"";position:absolute;inset:-10% -20% auto;height:130%;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(50% 60% at 18% 30%,rgba(255,199,44,.20),transparent 70%),
+    radial-gradient(45% 55% at 82% 22%,rgba(225,35,26,.11),transparent 72%);
+}
+
+/* ---------- Header : profondeur une fois décollé du haut ---------- */
+.site-header{transition:box-shadow .25s var(--ease),background .25s var(--ease)}
+.site-header.scrolled{box-shadow:0 10px 30px -22px rgba(20,24,32,.5);background:rgba(255,255,255,.94)}
+
+/* ---------- Scroll-reveal ----------
+   .js-reveal n'est jamais dans le HTML : le script l'ajoute au
+   chargement. Sans JS (ou en reduced-motion), tout reste visible. */
+.js-reveal{
+  opacity:0;transform:translateY(18px);
+  transition:opacity .55s var(--ease),transform .55s var(--ease);
+  transition-delay:var(--reveal-delay,0ms);
+  will-change:opacity,transform;
+}
+.js-reveal.is-in{opacity:1;transform:none;will-change:auto}
+
+/* ---------- Chiffres animés ---------- */
+.figures{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+.figure{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);
+  padding:26px 22px;text-align:center;transition:.24s var(--ease);position:relative;overflow:hidden}
+.figure:hover{transform:translateY(-4px);box-shadow:var(--sh);border-color:var(--line-2)}
+.figure b{display:block;font-family:var(--disp);font-size:clamp(2rem,4vw,2.8rem);color:var(--ink);
+  line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.figure span{display:block;font-size:.9rem;color:var(--mute);margin-top:8px;font-weight:600}
+.figure .u{color:var(--red)}
+@media(max-width:760px){.figures{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- Notes sous le formulaire ---------- */
+.form-note{font-size:.88rem;color:var(--ink-2);margin-top:14px;text-align:center}
+.form-note a{color:var(--red);font-weight:700}
+.form-note a:hover{text-decoration:underline}
+.form-legal{font-size:.78rem;color:var(--mute);margin-top:10px;text-align:center;line-height:1.5}
+
+/* ---------- Accessibilité : focus visible ---------- */
+a:focus-visible,button:focus-visible,input:focus-visible,
+select:focus-visible,textarea:focus-visible,summary:focus-visible{
+  outline:3px solid var(--red);outline-offset:2px;border-radius:4px;
+}
+.skip-link{position:absolute;left:-9999px;top:0;z-index:100;background:var(--ink);color:#fff;
+  padding:.8em 1.2em;border-radius:0 0 10px 0;font-weight:700}
+.skip-link:focus{left:0}
+
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+  .js-reveal{opacity:1!important;transform:none!important}
 }
