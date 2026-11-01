@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/services/photovoltaique", "destination": "/", "permanent": true },
+    { "source": "/services/photovoltaique/", "destination": "/", "permanent": true }
+  ]
+}

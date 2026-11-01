@@ -171,7 +171,7 @@ strong{color:var(--ink);font-weight:700}
 .section-head p{color:var(--ink-2);font-size:1.06rem}
 
 /* ---------- Sectors (4 tiles) ---------- */
-.sectors{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.sectors{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .sector{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:26px 22px;
   transition:.24s var(--ease);position:relative;overflow:hidden}
 .sector::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;
@@ -423,6 +423,7 @@ strong{color:var(--ink);font-weight:700}
 .frow-media{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);box-shadow:var(--sh);aspect-ratio:4/3}
 .frow-media img{width:100%;height:100%;object-fit:cover}
 .frow.rev .frow-media{order:2}
+.frow.solo{grid-template-columns:1fr;max-width:70ch}
 .frow .kicker{font-weight:800;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--green-600)}
 .frow h3{font-size:1.45rem;margin:.35em 0 .5em}
 .frow p{color:var(--ink-2)}
@@ -533,6 +534,7 @@ strong{color:var(--ink);font-weight:700}
   .about-grid,.contact-grid{grid-template-columns:1fr;gap:30px}
   .svc-grid,.reviews-grid,.cards-3{grid-template-columns:repeat(2,1fr)}
   .sectors{grid-template-columns:repeat(2,1fr)}
+  .sector:last-child:nth-child(odd){grid-column:1/-1}
   .pf-grid{grid-template-columns:repeat(3,1fr)}
   .zones{grid-template-columns:repeat(3,1fr)}
   .footer-grid{grid-template-columns:1fr 1fr}
